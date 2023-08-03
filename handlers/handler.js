@@ -176,7 +176,14 @@ const editBookByIdHandler = (request, h) => {
   const updatedAt = new Date().toISOString();
   const index = books.findIndex((book) => book.id === id);
 
-  if (name === undefined) {
+  if (index === -1) {
+    const response = h.response({
+      status: 'fail',
+      message: 'Gagal memperbarui buku. Id tidak ditemukan',
+    });
+    response.code(404);
+    return response;
+  } else if (name === undefined) {
     const response = h.response({
       status: 'fail',
       message: 'Gagal memperbarui buku. Mohon isi nama buku',
@@ -190,7 +197,7 @@ const editBookByIdHandler = (request, h) => {
     });
     response.code(400);
     return response;
-  } else if (index !== -1) {
+  } else {
     books[index] = {
       ...books[index],
       name,
@@ -209,13 +216,6 @@ const editBookByIdHandler = (request, h) => {
     });
     response.code(200);
     return response;
-  } else {
-    const response = h.response({
-      status: 'fail',
-      message: 'Gagal memperbarui buku. Id tidak ditemukan',
-    });
-    response.code(404);
-    return response;
   }
 };
 
@@ -223,21 +223,21 @@ const deleteBookByIdHandler = (request, h) => {
   const { id } = request.params;
   const index = books.findIndex((book) => book.id === id);
 
-  if (index !== -1) {
-    books.splice(index, 1);
+  if (index === -1) {
     const response = h.response({
-      status: 'success',
-      message: 'Buku berhasil dihapus',
+      status: 'fail',
+      message: 'Buku gagal dihapus. Id tidak ditemukan',
     });
-    response.code(200);
+    response.code(404);
     return response;
   }
 
+  books.splice(index, 1);
   const response = h.response({
-    status: 'fail',
-    message: 'Buku gagal dihapus. Id tidak ditemukan',
+    status: 'success',
+    message: 'Buku berhasil dihapus',
   });
-  response.code(404);
+  response.code(200);
   return response;
 };
 
