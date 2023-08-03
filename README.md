@@ -1,6 +1,6 @@
 # Bookshelf API - Dicoding Final Project
 
-This repository contains the implementation of the final project from the "Belajar Membuat Aplikasi Back-End untuk Pemula" (Learn to Create Back-End Applications for Beginners) course by Dicoding. The Bookshelf API is a RESTful API designed to manage a list of books in a library. This API allows users to add, edit, delete, and retrieve a list of books.
+This repository contains the implementation of the final project from the "Belajar Membuat Aplikasi Back-End untuk Pemula" (Learn to Create Back-End Applications for Beginners) course by Dicoding. The Bookshelf API is a RESTful API designed to manage a list of books in a library. This API allows users to `add`, `edit`, `delete`, and `retrieve a list of books`.
 
 ## Features
 
@@ -12,10 +12,10 @@ This repository contains the implementation of the final project from the "Belaj
 
 ## Technologies Used
 
-- Node.js: The primary programming language for developing the API.
-- Hapi.js: The framework used to facilitate the development of RESTful APIs.
-- nanoid: A library used to generate unique random IDs.
-- JavaScript: The programming language for business logic.
+- `Node.js`: The primary programming language for developing the API.
+- `Hapi.js`: The framework used to facilitate the development of RESTful APIs.
+- `nanoid`: A library used to generate unique random IDs.
+- `JavaScript`: The programming language for business logic.
 
 ## How to Use
 
